@@ -81,6 +81,7 @@ const App = () => {
                 {row.map((cell, j) => {
                   return (
                     <button
+                      style={{ width: 25 }}
                       disabled={cell !== Cell.Empty || loading || isComplete}
                       key={i + j}
                       onClick={() => buttonHandler(i, j)}
