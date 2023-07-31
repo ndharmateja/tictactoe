@@ -27,9 +27,9 @@ def validate_board(board):
                 raise TypeError("each element needs to be an integer")
             if number < 0 or number > 2:
                 raise TypeError("each element needs to be an integer")
-            if number == 0:
+            if number == 1:
                 num_ones += 1
-            elif number == 1:
+            elif number == 2:
                 num_twos += 1
 
     if num_ones-num_twos != 1:
