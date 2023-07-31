@@ -4,8 +4,8 @@ import Box from "@mui/material/Box";
 
 const CircularIndeterminate = () => {
   return (
-    <Box sx={{ display: "flex" }}>
-      <CircularProgress />
+    <Box sx={{ display: "inline" }}>
+      <CircularProgress size={10} />
     </Box>
   );
 };
