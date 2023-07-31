@@ -26,9 +26,9 @@ def validate_board(board):
     for row in board:
         if len(row) != 3:
             raise TypeError("each row in board needs to have 3 elements")
-        
-    num_ones=0
-    num_twos=0
+
+    num_ones = 0
+    num_twos = 0
     for row in board:
         for number in row:
             if type(number) != int:
@@ -40,7 +40,7 @@ def validate_board(board):
             elif number == 2:
                 num_twos += 1
 
-    if num_ones-num_twos != 1:
+    if num_ones - num_twos != 1:
         raise TypeError("invalid number of ones and twos")
 
 
