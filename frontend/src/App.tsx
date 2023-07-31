@@ -1,6 +1,18 @@
 import React from "react";
 
 const App = () => {
+  const getCellSymbol = (cell: Cell): string => {
+    switch (cell) {
+      case Cell.Empty:
+        return "_";
+      case Cell.Computer:
+        return "X";
+      case Cell.User:
+        return "O";
+      default:
+        return assertNever(cell);
+    }
+  };
 
   const getSummaryMessage = (): string => {
     let message = "Game Over! ";
