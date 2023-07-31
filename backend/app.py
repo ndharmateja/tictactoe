@@ -45,7 +45,7 @@ def compute():
         return jsonify(result), 201
     except TypeError as e:
         return jsonify({"error": str(e)}), 401
-    except:
+    except Exception as e:
         return jsonify({"error": "Unknown error"}), 500
 
 
