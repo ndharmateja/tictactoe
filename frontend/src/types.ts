@@ -1,10 +1,10 @@
-enum Cell {
+export enum Cell {
   Empty = 0,
   User = 1,
   Computer = 2,
 }
 type Row = [Cell, Cell, Cell];
-enum Winner {
+export enum Winner {
   Tie = 0,
   User = 1,
   Computer = 2,
