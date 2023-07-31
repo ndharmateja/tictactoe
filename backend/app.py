@@ -52,8 +52,12 @@ def compute():
         result = compute_board(board)
         return jsonify(result), 201
     except TypeError as e:
+        print("Validation Error: " + str(e))
+        print(board)
         return jsonify({"error": str(e)}), 401
     except Exception as e:
+        print("Error: " + str(e))
+        print(board)
         return jsonify({"error": "Unknown error"}), 500
 
 
