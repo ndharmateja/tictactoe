@@ -1,7 +1,3 @@
-# # Validations:
-# 1. Every cell should be a number and between 0 and 2
-# 2. Number of 1s should be greater than number of 2s by 1
-#
 # take a 3x3 2d list
 # 0 - empty
 # 1 - user
