@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Board, BoardData, Cell, Winner } from "./types";
 import { assertNever } from "./utils";
 import computeService from "./service";
+import CircularIndeterminate from "./components/CircularIndeterminate";
 
 const INITIAL_BOARD: Board = [
   [0, 0, 0],
@@ -71,7 +72,7 @@ const App = () => {
 
   return (
     <div>
-      Board
+      Board {loading ? <CircularIndeterminate /> : <></>}
       {board.map((row, i) => {
         return (
           <>
@@ -93,7 +94,6 @@ const App = () => {
           </>
         );
       })}
-      {loading ? <p>Computer is thinking</p> : <></>}
       {isComplete ? (
         <div>
           <p>{getSummaryMessage()}</p>
