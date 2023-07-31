@@ -12,8 +12,15 @@ CORS(app)
 # 1. Every cell should be a number and between 0 and 2
 # 2. Number of 1s should be greater than number of 2s by 1
 def validate_board(board):
-    raise TypeError("")
-    pass
+    if type(board) != list:
+        raise TypeError("board should be a list")
+    if len(board) != 3:
+        raise TypeError("board needs to have 3 rows")
+    for row in board:
+        if len(row) != 3:
+            raise TypeError("each row in board needs to have 3 elements")
+
+    
 
 
 @app.route("/compute", methods=["POST"])
