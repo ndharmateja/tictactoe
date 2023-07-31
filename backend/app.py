@@ -1,5 +1,13 @@
+import sys
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+
+
+# to not generate pycache (this line before local imports)
+sys.dont_write_bytecode = True
+
+
+# local imports
 from tictactoe import compute_board
 
 
