@@ -61,7 +61,7 @@ const App = () => {
 
     // Compute the next move
     try {
-      const data = await computeService.compute(board);
+      const data = await computeService.compute(boardCopy);
       setLoading(false);
       setBoardData(data);
     } catch (error) {
