@@ -75,24 +75,22 @@ const App = () => {
       Board {loading ? <CircularIndeterminate /> : <></>}
       {board.map((row, i) => {
         return (
-          <>
-            <div key={i}>
-              <span>
-                {row.map((cell, j) => {
-                  return (
-                    <button
-                      style={{ width: 25 }}
-                      disabled={cell !== Cell.Empty || loading || isComplete}
-                      key={i + j}
-                      onClick={() => buttonHandler(i, j)}
-                    >
-                      {getCellSymbol(cell)}
-                    </button>
-                  );
-                })}
-              </span>
-            </div>
-          </>
+          <div key={`key${i}`}>
+            <span>
+              {row.map((cell, j) => {
+                return (
+                  <button
+                    style={{ width: 25 }}
+                    disabled={cell !== Cell.Empty || loading || isComplete}
+                    key={`key${i + j}`}
+                    onClick={() => buttonHandler(i, j)}
+                  >
+                    {getCellSymbol(cell)}
+                  </button>
+                );
+              })}
+            </span>
+          </div>
         );
       })}
       {isComplete ? (
