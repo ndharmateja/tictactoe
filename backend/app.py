@@ -1,5 +1,6 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
+from tictactoe import compute_board
 
 
 app = Flask(__name__)
@@ -8,9 +9,9 @@ CORS(app)
 
 @app.route("/compute", methods=["POST"])
 def compute():
-    result = {"board": [[0, 0, 1], [0, 1, 0], [1, 0, 0]],
-              "isComplete": True, "winner": 1}
-    return jsonify(result), 200
+    board = request.get_json()
+    result = compute_board(board)
+    return jsonify(result), 201
 
 
 if __name__ == "__main__":
