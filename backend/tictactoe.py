@@ -7,6 +7,13 @@ def check_winner(board, n):
     return False
 
 
+def check_tie(board):
+    for lst in board:
+        if 0 in lst: break
+    else: return True
+    return False
+
+
 # take a 3x3 2d list
 # 0 - empty
 # 1 - user
