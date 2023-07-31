@@ -73,7 +73,7 @@ def next_best(board):
     # if there exists no symbol yet. creates one randomly
     while True:
         i = random.randint(1, 10)
-        if board[int(i/3)][i % 3] == None:
+        if board[int(i/3)][i % 3] == 0:
             return i
 
 
