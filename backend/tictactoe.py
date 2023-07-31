@@ -73,7 +73,22 @@ def next_best(board):
 # winner - 2 => computer
 # {board: [[]], isComplete: true/false, winner: 0/1/2}
 def compute_board(board):
-    return {"board": [[0, 0, 1], [0, 1, 0], [1, 0, 0]],
-              "isComplete": True, "winner": 2}
+    result = {'board': board, 'is_complete': False, 'winner': 0}
+    if check_winner(board, 1) == True:
+        result['is_complete'], result['winner'] = True, 1
+    elif check_tie(board) == True:
+        result['is_complete'], result['winner'] = True, 0
+    elif type(check_winning(board)) == int:
+        number = check_winning(board)
+        i, j = get_indices_from_number(number)
+        board[i][j] = 2
+        result['is_complete'], result['winner'] = True, 2
+        
+    else: 
+        number = next_best(board)
+        i, j = get_indices_from_number(number)
+        board[i][j] = 2
+        result['is_complete'] = False
+    return result
 
 
