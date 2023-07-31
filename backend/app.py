@@ -1,4 +1,4 @@
-import sys
+import sys, os
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -62,4 +62,4 @@ def compute():
 
 
 if __name__ == "__main__":
-    app.run(port=3001, debug=True)
+    app.run(port=os.environ.get("PORT", 3001), debug=True)
