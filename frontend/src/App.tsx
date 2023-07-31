@@ -1,6 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { Board, BoardData, Cell, Winner } from "./types";
+import { assertNever } from "./utils";
+import computeService from "./service";
+
+const INITIAL_BOARD: Board = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0],
+];
+
+const INITIAL_BOARD_DATA: BoardData = {
+  board: INITIAL_BOARD,
+  isComplete: false,
+  winner: Winner.Tie,
+};
 
 const App = () => {
+  const [boardData, setBoardData] = useState<BoardData>(INITIAL_BOARD_DATA);
+  const [loading, setLoading] = useState<boolean>(false);
+  const { board, isComplete, winner } = boardData;
+
   const getCellSymbol = (cell: Cell): string => {
     switch (cell) {
       case Cell.Empty:
@@ -49,6 +68,44 @@ const App = () => {
       setLoading(false);
     }
   };
+
+  return (
+    <div>
+      Board
+      {board.map((row, i) => {
+        return (
+          <>
+            <div key={i}>
+              <span>
+                {row.map((cell, j) => {
+                  return (
+                    <button
+                      disabled={cell !== Cell.Empty || loading}
+                      key={i + j}
+                      onClick={() => buttonHandler(i, j)}
+                    >
+                      {getCellSymbol(cell)}
+                    </button>
+                  );
+                })}
+              </span>
+            </div>
+          </>
+        );
+      })}
+      {loading ? <p>Computer is thinking</p> : <></>}
+      {isComplete ? (
+        <div>
+          <p>{getSummaryMessage()}</p>
+          <button onClick={() => setBoardData(INITIAL_BOARD_DATA)}>
+            Play Again
+          </button>
+        </div>
+      ) : (
+        <></>
+      )}
+    </div>
+  );
 };
 
 export default App;
