@@ -65,7 +65,7 @@ def compute():
 # Test
 @app.route("/ping", methods=["GET"])
 def ping():
-    return "pongsssss"
+    return "pong"
     
 
 # Webhook
