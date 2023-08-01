@@ -62,6 +62,12 @@ def compute():
         return jsonify({"error": "Unknown error"}), 500
     
 
+# Test
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "pong"
+    
+
 # Webhook
 @app.route('/update_server', methods=['POST'])
 def webhook():
