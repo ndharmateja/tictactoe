@@ -72,7 +72,7 @@ const App = () => {
 
   return (
     <div>
-      Board {loading ? <CircularIndeterminate /> : <></>}
+      Bubu {loading ? <CircularIndeterminate /> : <></>}
       {board.map((row, i) => {
         return (
           <div key={`key${i}`}>
