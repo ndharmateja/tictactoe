@@ -72,7 +72,7 @@ def ping():
 @app.route('/update_server', methods=['POST'])
 def webhook():
     if request.method == 'POST':
-        repo = Repo('path/to/git_repo')
+        repo = Repo('/home/ndharmateja/tictactoe')
         origin = repo.remotes.origin
         origin.pull()
         return 'Updated PythonAnywhere successfully', 200
