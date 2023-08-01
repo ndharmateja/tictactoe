@@ -69,6 +69,8 @@ def ping():
     
 
 # Webhook
+# To auto deploy to pythonanywhere.com
+# Reference: https://medium.com/@aadibajpai/deploying-to-pythonanywhere-via-github-6f967956e664
 @app.route('/update_server', methods=['POST'])
 def webhook():
     if request.method == 'POST':
