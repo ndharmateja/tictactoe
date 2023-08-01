@@ -13,4 +13,3 @@ six==1.16.0
 smmap==5.0.0
 Werkzeug==2.3.6
 zipp==3.16.2
-minimal==0.1.0
