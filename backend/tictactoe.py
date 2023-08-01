@@ -138,5 +138,5 @@ def compute_board(board):
 
 #print(next_best([[0,0,2], [0, 1, 2], [1, 0, 1]]))
 #print(get_indices_from_number(3))
-print(compute_board([[0,0,2], [0, 1, 0], [0, 1, 0]]))
+# print(compute_board([[0,0,2], [0, 1, 0], [0, 1, 0]]))
 #print(check_winning([[0,0,2], [0, 1, 2], [1, 0, 1]]), 2)
