@@ -1,7 +1,7 @@
 import sys, os
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from git import Repo
+# from git import Repo
 
 
 # to not generate pycache (this line before local imports)
@@ -69,15 +69,15 @@ def ping():
     
 
 # Webhook
-@app.route('/update_server', methods=['POST'])
-def webhook():
-    if request.method == 'POST':
-        repo = Repo('path/to/git_repo')
-        origin = repo.remotes.origin
-        origin.pull()
-        return 'Updated PythonAnywhere successfully', 200
-    else:
-        return 'Wrong event type', 400
+# @app.route('/update_server', methods=['POST'])
+# def webhook():
+#     if request.method == 'POST':
+#         repo = Repo('path/to/git_repo')
+#         origin = repo.remotes.origin
+#         origin.pull()
+#         return 'Updated PythonAnywhere successfully', 200
+#     else:
+#         return 'Wrong event type', 400
 
 
 if __name__ == "__main__":
